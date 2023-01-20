@@ -1,0 +1,1 @@
+declare module "@react-18-pdf/renderer"
