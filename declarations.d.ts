@@ -1,1 +1,1 @@
-declare module "@react-18-pdf/renderer"
+declare module "@react-pdf/renderer"

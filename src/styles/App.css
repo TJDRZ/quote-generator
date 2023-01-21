@@ -4,7 +4,7 @@
         ".header header ."
         ". form form ."
         ". form form ."
-        ". . . .";
+        ". link link .";
 }
 
 .App > header {
@@ -55,4 +55,9 @@
 
 .App > form > button:active {
     box-shadow: none;
-} 
+}
+
+.link {
+    grid-area: link;
+    color: red;
+}

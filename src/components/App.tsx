@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import MyDocument from "./MyDocument";
 import "../styles/App.css";
 
 function App() {
@@ -6,13 +8,34 @@ function App() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [person, setPerson] = useState("");
+  const [pdf, setPDF] = useState<any>();
+  const link = useRef<any>();
 
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (link && link.current) {
+      link.current.style.color = "green";
+    }
+    setPDF(
+      <PDFDownloadLink
+        document={
+          <MyDocument code={code} name={name} price={price} person={person} />
+        }
+        fileName="quote.pdf"
+      >
+        CLICK HERE
+      </PDFDownloadLink>
+    );
+  };
+
+  const downloadReset = () => {
     setCode("");
     setName("");
     setPrice("");
     setPerson("");
+    if (link && link.current) {
+      link.current.style.color = "red";
+    }
   };
 
   return (
@@ -45,6 +68,9 @@ function App() {
         />
         <button>Submit</button>
       </form>
+      <div className="link" ref={link} onClick={downloadReset}>
+        Download Link Will Appear Here - {pdf}
+      </div>
     </main>
   );
 }
