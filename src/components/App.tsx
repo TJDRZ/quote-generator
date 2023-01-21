@@ -22,20 +22,15 @@ function App() {
           <MyDocument code={code} name={name} price={price} person={person} />
         }
         fileName="quote.pdf"
+        onClick={pageReset}
       >
         CLICK HERE
       </PDFDownloadLink>
     );
   };
 
-  const downloadReset = () => {
-    setCode("");
-    setName("");
-    setPrice("");
-    setPerson("");
-    if (link && link.current) {
-      link.current.style.color = "red";
-    }
+  const pageReset = () => {
+    window.location.reload();
   };
 
   return (
@@ -68,7 +63,7 @@ function App() {
         />
         <button>Submit</button>
       </form>
-      <div className="link" ref={link} onClick={downloadReset}>
+      <div className="link" ref={link}>
         Download Link Will Appear Here - {pdf}
       </div>
     </main>
