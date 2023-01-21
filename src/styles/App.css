@@ -1,0 +1,58 @@
+.App {
+    display: grid;
+    grid-template-areas: 
+        ".header header ."
+        ". form form ."
+        ". form form ."
+        ". . . .";
+}
+
+.App > header {
+    grid-area: header;
+    place-self: center;
+    font-size: 3rem;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+.App > form {
+    grid-area: form;
+    place-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: outset #41abdf;
+    border-radius: 0.5rem;
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.App > form > input {
+    padding: 0.5rem;
+    color: black;
+    background-color: #d8f7ff;
+    border: none;
+}
+
+.App > form > input:valid {
+    border: solid #42fa25;
+}
+
+.App > form > input:invalid {
+    border: solid #fa2525;
+}
+
+.App > form > button {
+    width: 50%;
+    padding: 0.5rem;
+    background-color: #41abdf;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.App > form > button:active {
+    box-shadow: none;
+} 

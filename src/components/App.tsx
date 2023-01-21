@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import "../styles/App.css";
 
 function App() {
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [person, setPerson] = useState("");
 
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCode("");
     setName("");
-    setPrice(0);
+    setPrice("");
     setPerson("");
   };
 
@@ -21,25 +22,25 @@ function App() {
         <input
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          placeholder="Enter Product Code"
+          placeholder="Enter Product Code..."
           required
         />
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Enter Product Name (Optional)"
+          placeholder="Enter Product Name..."
+          required
         />
         <input
-          type="number"
           value={price}
-          onChange={(e) => setPrice(parseFloat(e.target.value))}
-          placeholder="Enter Price / UOM"
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="Enter Price / UOM..."
           required
         />
         <input
           value={person}
           onChange={(e) => setPerson(e.target.value)}
-          placeholder="Enter Your Name"
+          placeholder="Enter Your Name..."
           required
         />
         <button>Submit</button>
