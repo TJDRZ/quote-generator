@@ -14,6 +14,8 @@ type MyDocumentProps = {
   name: string;
   price: string;
   person: string;
+  position: string;
+  fsc?: string;
 };
 
 const styles = StyleSheet.create({
@@ -41,12 +43,12 @@ const styles = StyleSheet.create({
     textDecoration: "underline",
   },
   text: {
-    margin: 30
+    margin: 30,
   },
 });
 
 function MyDocument(props: MyDocumentProps) {
-  const { code, name, price, person } = props;
+  const { code, name, price, fsc, person, position } = props;
   return (
     <Document>
       <Page size="LETTER" orientation="landscape">
@@ -64,8 +66,9 @@ function MyDocument(props: MyDocumentProps) {
             {code} - {name}
           </Text>
           <Text style={styles.text}>{price}</Text>
+          {fsc && <Text style={styles.text}>Fuel Surcharge: {fsc}</Text>}
           <Text style={styles.text}>
-            Customer Service Representative: {person}
+            {position}: {person}
           </Text>
         </View>
       </Page>
