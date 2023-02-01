@@ -34,7 +34,7 @@ function App() {
             fsc={fsc}
           />
         }
-        fileName="quote.pdf"
+        fileName={`${code}-quote.pdf`}
         onClick={pageReset}
       >
         CLICK HERE
